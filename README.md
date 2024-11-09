@@ -22,9 +22,9 @@ This console application provides a set of simple operations that users can perf
    cd your-repo-name
   ```
 3. Run the program:
-   ```bash
+  ``` 
   python app.py
-
+   ```
 License
 This project is licensed under the MIT License.
 ```bash
