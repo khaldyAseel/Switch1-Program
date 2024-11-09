@@ -17,11 +17,17 @@ This console application provides a set of simple operations that users can perf
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
 
-2.Navigate to the project directory:
-  cd command line Application
+2. Navigate to the project directory:
+  ```bash
+   cd your-repo-name
   
-3.Run the program:
+3. Run the program:
+   ```bash
   python app.py
 
+License
+This project is licensed under the MIT License.
+```bash
+Replace `"your-username/your-repo-name"` with the actual URL of your GitHub repository. This README includes installation instructions, usage examples, feature descriptions, and a general project overview. It’s a solid starting point, and you can add more details as needed!
 
 
