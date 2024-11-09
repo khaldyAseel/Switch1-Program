@@ -20,7 +20,7 @@ This console application provides a set of simple operations that users can perf
 2. Navigate to the project directory:
   ```bash
    cd your-repo-name
-  
+  ```
 3. Run the program:
    ```bash
   python app.py
