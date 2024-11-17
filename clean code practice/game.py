@@ -3,6 +3,9 @@ import random
 LOW_COINS_THRESHOLD = 10
 WINNING_SCORE = 100
 class GoldRush(Matrix):
+    COIN = "coin"
+    EMPTY = "."
+    WALL = "wall"
     def __init__(self, rows, cols):
         super().__init__(rows, cols)
         self.s1 = 0
@@ -16,7 +19,7 @@ class GoldRush(Matrix):
             return
 
         self.matrix = []
-        elements = ["coin", ".", "wall"]
+        elements = [self.COIN,self.EMPTY,self.WALL]
         coins = 0
 
         for i in range(self.rows):
@@ -26,7 +29,7 @@ class GoldRush(Matrix):
                     rand_index = random.randint(0, 1)
                     rand_element = elements[rand_index]
                     self.matrix[i].append(rand_element)
-                    if rand_element == "coin":
+                    if rand_element == self.COIN:
                         coins += 1
                 else:
                     wall_index = 2
@@ -39,14 +42,14 @@ class GoldRush(Matrix):
                 rand_index = random.randint(0, 1)
                 rand_element = elements[rand_index]
                 self.matrix[i][k] = rand_element
-                if rand_element == "coin":
+                if rand_element == self.COIN:
                     coins += 1
 
         self.matrix[0][0] = "player1"
         self.matrix[self.rows - 1][self.cols - 1] = "player2"
         self.coins = coins
 
-        if coins < LOW_COINS_THRESHOLD: ### 
+        if coins < LOW_COINS_THRESHOLD: #threshold 
             return self.load_board()
         else:
             return self.matrix
@@ -75,11 +78,11 @@ class GoldRush(Matrix):
         if not (0 <= new_row < self.rows and 0 <= new_col < self.cols):
             return
 
-        if self.matrix[new_row][new_col] not in ["wall", other_player]:
-            if self.matrix[new_row][new_col] == "coin":
+        if self.matrix[new_row][new_col] not in [self.WALL, other_player]:
+            if self.matrix[new_row][new_col] == self.COIN:
                 self._score(player)
 
-            self.matrix[curr_row][curr_col] = "."
+            self.matrix[curr_row][curr_col] = self.EMPTY
             self.matrix[new_row][new_col] = player
 
         return self._check_win(player)
