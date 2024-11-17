@@ -1,4 +1,7 @@
-# Python-Command-Line-Application
+# Switch Program 
+here you can find everything about python and interview preparing.   
+
+# Assiement 1 Python-Command-Line-Application
 
 This console application provides a set of simple operations that users can perform on input strings. It includes options to check if an input is a palindrome, if all characters are lowercase, if it only contains digits, if it exceeds a certain length, or if it is empty. Users can continue to select operations until they choose to exit.
 
