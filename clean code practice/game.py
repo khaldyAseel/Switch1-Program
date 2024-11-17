@@ -1,7 +1,7 @@
 from Matrix import Matrix
 import random
-low = 10
-winning_score = 100
+LOW_COINS_THRESHOLD = 10
+WINNING_SCORE = 100
 class GoldRush(Matrix):
     def __init__(self, rows, cols):
         super().__init__(rows, cols)
@@ -46,7 +46,7 @@ class GoldRush(Matrix):
         self.matrix[self.rows - 1][self.cols - 1] = "player2"
         self.coins = coins
 
-        if coins < low: ### 
+        if coins < LOW_COINS_THRESHOLD: ### 
             return self.load_board()
         else:
             return self.matrix
@@ -54,11 +54,11 @@ class GoldRush(Matrix):
     def _check_win(self, player):
         player_num = player[-1]
         score = getattr(self, f"score{player_num}")
-        if score == winning_score:
+        if score == WINNING_SCORE:
             self.win = player
             return self.win
 
-    def _check_other_player(self, player):
+    def _get_opponent(self, player):
         otherPlayer = None
         if player == "player1":
             otherPlayer = "player2"
@@ -68,8 +68,8 @@ class GoldRush(Matrix):
             return otherPlayer
         
 
-    def move(self, curr_row, curr_col, player, delta_row, delta_col):
-        other_player = self._check_other_player(player)
+    def _perform_move(self, curr_row, curr_col, player, delta_row, delta_col):
+        other_player = self._get_opponent(player)
         new_row, new_col = curr_row + delta_row, curr_col + delta_col
 
         if not (0 <= new_row < self.rows and 0 <= new_col < self.cols):
@@ -96,7 +96,7 @@ class GoldRush(Matrix):
     def move_left(self, curr_row, curr_col, player):
         return self._move(curr_row, curr_col, player, 0, -1)
 
-    def move_player(self, player, direction):
+    def _move_player(self, player, direction):
         curr_row, curr_col = None, None
 
         for i, row in enumerate(self.matrix):
@@ -116,7 +116,7 @@ class GoldRush(Matrix):
         elif direction == "left":
             self._move_left(curr_row, curr_col, player)
 
-    def _score(self, player):
+    def _update_score(self, player):
         player_num = player[-1]
         score_attr = f"score{player_num}"
         setattr(self, score_attr, getattr(self, score_attr) + 10)
