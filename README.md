@@ -1,8 +1,8 @@
 # Switch Program 
-### switch course will include interview preparing , assiegments and projects. 
-### The intensive technological program focused on advanced development practices and software engineering principles.
-### Comprehensive curriculum covering clean code, system design, data structures, and algorithms.
-### Emphasis on practical implementation, such as debug mastery, code reviews, and industry-standard tools (Git, AI-assisted workflows).
+ switch course will include interview preparing , assiegments and projects. 
+ The intensive technological program focused on advanced development practices and software engineering principles.
+ Comprehensive curriculum covering clean code, system design, data structures, and algorithms.
+ Emphasis on practical implementation, such as debug mastery, code reviews, and industry-standard tools (Git, AI-assisted workflows).
 
 
 
