@@ -26,17 +26,17 @@ class Student(Person):
         self.grades = {}
         self.attendance = {} 
 
-def enroll(self, course):
-    if course is None:
-        raise ValueError("Course cannot be None.")
-    
-    if course in self.courses:
-        raise AlreadyEnrolledError(f"{self.name} is already enrolled in {course.name}.")
-    
-    self.courses.append(course)
-    self.grades[course] = []
-    course.add_student(self)
-    print(f"{self.name} enrolled in {course.name}")
+    def enroll(self, course):
+        if course is None:
+            raise ValueError("Course cannot be None.")
+        
+        if course in self.courses:
+            raise AlreadyEnrolledError(f"{self.name} is already enrolled in {course.name}.")
+        
+        self.courses.append(course)
+        self.grades[course] = []
+        course.add_student(self)
+        print(f"{self.name} enrolled in {course.name}")
 
 
     def assign_grade(self, course, grade):
