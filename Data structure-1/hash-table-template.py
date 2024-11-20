@@ -10,7 +10,7 @@ class HashTable:
         return array[self.hash(key)]
 
     def set(self, key, value):
-        self.array[key] = value
+        self.array[self.hash(key)] = value
 
 # Example usage
 table = HashTable(5)
