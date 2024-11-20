@@ -7,7 +7,7 @@ class HashTable:
         return key % self.size
 
     def get(self, key):
-        return array[self.hash(key)]
+        return self.array[self.hash(key)]
 
     def set(self, key, value):
         self.array[self.hash(key)] = value
