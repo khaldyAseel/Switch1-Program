@@ -1,5 +1,5 @@
 # Acoording to the design principles encapsulation
-# we can do 
+# we can do encapsulation through get and set 
 
 class BankAccount:
     def __init__(self, balance=0):
