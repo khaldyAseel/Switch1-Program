@@ -95,8 +95,8 @@ class TimedMemoryGame(MemoryGame):
 
 # Usage
 print("Regular Memory Game:")
-game = MemoryGame(8)
-game.play()
+#game = MemoryGame(8)
+#game.play()
 
 print("\nTimed Memory Game:")
 timed_game = TimedMemoryGame(8, 30)  # 8 cards, 60 seconds time limit

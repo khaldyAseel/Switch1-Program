@@ -95,6 +95,7 @@ class TimedMemoryGame():
         self.memory_game = MemoryGame(size)
         self.timer = Timer(time_limit)
 
+
     def play(self):
         self.timer.start()
         while self.memory_game.state.pairs_found < self.memory_game.board.size // 2 and not self.timer.is_time_up():
@@ -103,7 +104,7 @@ class TimedMemoryGame():
         self.end_game()
 
     def display_game_state(self):
-        self.memory_game.display_game_state()
+        self.state.display_game_state()
         print(f"Time remaining: {self.timer.remaining_time():.1f} seconds")
 
     def end_game(self):
