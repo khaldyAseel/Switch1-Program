@@ -104,15 +104,15 @@ class TimedMemoryGame():
         self.end_game()
 
     def display_game_state(self):
-        self.state.display_game_state()
+        self.memory_game.display_game_state()
         print(f"Time remaining: {self.timer.remaining_time():.1f} seconds")
 
     def end_game(self):
         if self.timer.is_time_up():
-            print(f"Time's up! You found {self.state.pairs_found} pairs in {self.state.turns} turns.")
+            print(f"Time's up! You found {self.memory_game.state.pairs_found} pairs in {self.memory_game.state.turns} turns.")
         else:
             elapsed_time = self.timer.time_limit - self.timer.remaining_time()
-            print(f"Congratulations! You completed the game in {self.state.turns} turns and {elapsed_time:.1f} seconds.")
+            print(f"Congratulations! You completed the game in {self.memory_game.state.turns} turns and {elapsed_time:.1f} seconds.")
 
 
 # Usage
