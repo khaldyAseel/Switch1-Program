@@ -99,5 +99,5 @@ print("Regular Memory Game:")
 #game.play()
 
 print("\nTimed Memory Game:")
-timed_game = TimedMemoryGame(8, 30)  # 8 cards, 60 seconds time limit
+timed_game = TimedMemoryGame(8, 60)  # 8 cards, 60 seconds time limit
 timed_game.play()
