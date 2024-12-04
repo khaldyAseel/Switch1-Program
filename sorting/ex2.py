@@ -180,8 +180,8 @@ def is_prime(n):
 
 
 
-print(f"merge sort with o(1) complexity:",{merge_sort([2,4,3,7,5])})
-print(f"merge sort with absolute values:",{merge_sort_abs([-1,-5,4,3,7])})
-print(f"merge sort with strings:",{merge_sort_strings(['a','A','b','C','d'])})
-print(f"merge sort first odd nums then even:",{merge_sort_odd([3,6,4,12,8])})
-print(f"merge sort with prime numbers:",{merge_sort_primes([2,6,8,5,3,7])})
+print(f"merge sort with o(1) complexity:{merge_sort([2,4,3,7,5])}")
+print(f"merge sort with absolute values:{merge_sort_abs([-1,-5,4,3,7])}")
+print(f"merge sort with strings:{merge_sort_strings(['a','A','b','C','d'])}")
+print(f"merge sort first odd nums then even:{merge_sort_odd([3,6,4,12,8])}")
+print(f"merge sort with prime numbers:{merge_sort_primes([2,6,8,5,3,7])}")
