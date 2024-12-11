@@ -1,8 +1,4 @@
-
-LOW_COINS_THRESHOLD = 10
-WINNING_SCORE = 100
-
-class Square():
+class Square:
     EMPTY = "."
     COIN = "coin"
     BONUS = "bonus"
