@@ -23,7 +23,7 @@ def common_nums2(arr1,arr2):
 
     return common_elements
 
-#print(common_nums2([1,2,3],[2,1,3]))
+print(f"common nums between tow arrays:{common_nums2([1,2,3],[2,1,3])}")
 
 
 def common_nums3(arr1,arr2,arr3):
@@ -31,4 +31,6 @@ def common_nums3(arr1,arr2,arr3):
 
     return common_nums2(nums,arr3)
 
-print(common_nums3([1,4,5,3],[2,3,6,7],[1,2,4,3]))
+print(f"common nums between three arrays :{common_nums3([1,4,5,3],[2,3,6,7],[1,2,4,3])}")
+
+
