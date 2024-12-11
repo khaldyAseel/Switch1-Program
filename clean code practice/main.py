@@ -13,7 +13,7 @@ def play_game():
     while not game.win:
         player = "player1"
         direction = input(f"{player}, enter your move (up, down, left, right): ").strip().lower()
-        game.move_player(player, direction)
+        game._move_player(player, direction)
         game.print()
         if game._check_win(player):
             print(f"{player} wins!")
@@ -21,7 +21,7 @@ def play_game():
 
         player = "player2"
         direction = input(f"{player}, enter your move (up, down, left, right): ").strip().lower()
-        game.move_player(player, direction)
+        game._move_player(player, direction)
         game.print()
         if game._check_win(player):
             print(f"{player} wins!")

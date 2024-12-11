@@ -1,15 +1,18 @@
 from Matrix import Matrix
 import random
+
 LOW_COINS_THRESHOLD = 10
 WINNING_SCORE = 100
+
 class GoldRush(Matrix):
     COIN = "coin"
     EMPTY = "."
     WALL = "wall"
+
     def __init__(self, rows, cols):
         super().__init__(rows, cols)
-        self.s1 = 0
-        self.s2 = 0
+        self.score1 = 0
+        self.score2 = 0
         self.win = ""
         self.coins = 0
 
@@ -19,7 +22,7 @@ class GoldRush(Matrix):
             return
 
         self.matrix = []
-        elements = [self.COIN,self.EMPTY,self.WALL]
+        elements = [self.COIN, self.EMPTY, self.WALL]
         coins = 0
 
         for i in range(self.rows):
@@ -49,7 +52,7 @@ class GoldRush(Matrix):
         self.matrix[self.rows - 1][self.cols - 1] = "player2"
         self.coins = coins
 
-        if coins < LOW_COINS_THRESHOLD: #threshold 
+        if coins < LOW_COINS_THRESHOLD:  # threshold
             return self.load_board()
         else:
             return self.matrix
@@ -62,14 +65,10 @@ class GoldRush(Matrix):
             return self.win
 
     def _get_opponent(self, player):
-        otherPlayer = None
         if player == "player1":
-            otherPlayer = "player2"
-            return otherPlayer
+            return "player2"
         elif player == "player2":
-            otherPlayer = "player1"
-            return otherPlayer
-        
+            return "player1"
 
     def _perform_move(self, curr_row, curr_col, player, delta_row, delta_col):
         other_player = self._get_opponent(player)
@@ -80,7 +79,7 @@ class GoldRush(Matrix):
 
         if self.matrix[new_row][new_col] not in [self.WALL, other_player]:
             if self.matrix[new_row][new_col] == self.COIN:
-                self._score(player)
+                self._update_score(player)
 
             self.matrix[curr_row][curr_col] = self.EMPTY
             self.matrix[new_row][new_col] = player
@@ -88,16 +87,16 @@ class GoldRush(Matrix):
         return self._check_win(player)
 
     def move_down(self, curr_row, curr_col, player):
-        return self._move(curr_row, curr_col, player, 1, 0)
+        return self._perform_move(curr_row, curr_col, player, 1, 0)
 
     def move_up(self, curr_row, curr_col, player):
-        return self._move(curr_row, curr_col, player, -1, 0)
+        return self._perform_move(curr_row, curr_col, player, -1, 0)
 
     def move_right(self, curr_row, curr_col, player):
-        return self._move(curr_row, curr_col, player, 0, 1)
+        return self._perform_move(curr_row, curr_col, player, 0, 1)
 
     def move_left(self, curr_row, curr_col, player):
-        return self._move(curr_row, curr_col, player, 0, -1)
+        return self._perform_move(curr_row, curr_col, player, 0, -1)
 
     def _move_player(self, player, direction):
         curr_row, curr_col = None, None
@@ -111,13 +110,13 @@ class GoldRush(Matrix):
                 break
 
         if direction == "down":
-            self._move_down(curr_row, curr_col, player)
+            self.move_down(curr_row, curr_col, player)
         elif direction == "up":
-            self._move_up(curr_row, curr_col, player)
+            self.move_up(curr_row, curr_col, player)
         elif direction == "right":
-            self._move_right(curr_row, curr_col, player)
+            self.move_right(curr_row, curr_col, player)
         elif direction == "left":
-            self._move_left(curr_row, curr_col, player)
+            self.move_left(curr_row, curr_col, player)
 
     def _update_score(self, player):
         player_num = player[-1]
