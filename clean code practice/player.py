@@ -8,7 +8,7 @@ class player():
 
 
     def _update_score(self, player, points):
-        score_attr = f"s{score}"
+        score_attr = self.score
         setattr(self, score_attr, getattr(self, score_attr) + points)
 
     def _move_player(self, player, direction):
