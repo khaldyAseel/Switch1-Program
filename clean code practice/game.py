@@ -1,6 +1,7 @@
 from Matrix import Matrix
 from square import Square
 from player import Player
+from Position import Position 
 import random
 
 LOW_COINS_THRESHOLD = 10
@@ -48,11 +49,8 @@ class GoldRush(Matrix):
                     coins += 1
 
         # Place players in the starting positions
-        self.matrix[0][0].occupy("player1")
-        self.matrix[self.rows - 1][self.cols - 1].occupy("player2")
-        self.players["player1"].set_position(Position(0, 0))
-        self.players["player2"].set_position(Position(self.rows - 1, self.cols - 1))
-
+        self.matrix[0][0] = Square("player1")
+        self.matrix[self.rows - 1][self.cols - 1] = Square("player2")
         self.coins = coins
 
         if coins < LOW_COINS_THRESHOLD:  # Threshold check
@@ -102,3 +100,32 @@ class GoldRush(Matrix):
                 if square.is_occupied() and square.occupied_by == player:
                     return r, c
         return None, None
+    
+    def _move_player(self, player, direction):
+        curr_row, curr_col = self._find_player_position(player)
+
+        if curr_row is None or curr_col is None:
+            return  # Player not found
+
+        if direction == "down":
+            return self.move_down(curr_row, curr_col, player)
+        elif direction == "up":
+            return self.move_up(curr_row, curr_col, player)
+        elif direction == "right":
+            return self.move_right(curr_row, curr_col, player)
+        elif direction == "left":
+            return self.move_left(curr_row, curr_col, player)
+
+    def move_down(self, curr_row, curr_col, player):
+        print("downnn")
+        return self._perform_move(curr_row, curr_col, player, 1, 0)
+
+    def move_up(self, curr_row, curr_col, player):
+        return self._perform_move(curr_row, curr_col, player, -1, 0)
+
+    def move_right(self, curr_row, curr_col, player):
+        return self._perform_move(curr_row, curr_col, player, 0, 1)
+
+    def move_left(self, curr_row, curr_col, player):
+        return self._perform_move(curr_row, curr_col, player, 0, -1)
+

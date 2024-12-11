@@ -8,6 +8,12 @@ class Square:
         self.square_type = square_type
         self.occupied_by = None
 
+    def __str__(self):
+        """Return a string representation of the square."""
+        if self.occupied_by:
+            return self.occupied_by  # If the square is occupied, return the player name
+        return self.square_type  # Otherwise, return the square type (coin, wall, etc.)
+    
     def is_occupied(self):
         """Check if the square is occupied by a player."""
         return self.occupied_by is not None

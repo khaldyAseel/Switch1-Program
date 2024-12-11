@@ -1,3 +1,5 @@
+from Position import Position
+
 class Matrix:
     def __init__(self, rows, cols):
         self.matrix = []
@@ -23,7 +25,7 @@ class Matrix:
         for r in range(self.rows):
             if value in self.matrix[r]:
                 c = self.matrix[r].index(value)
-                return {'x': r, 'y': c}
+                return Position(r, c)
         return None
 
     def get(self, row_num, col_num):
