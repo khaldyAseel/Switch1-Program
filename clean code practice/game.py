@@ -1,18 +1,12 @@
 from Matrix import Matrix
 import random
 
-LOW_COINS_THRESHOLD = 10
-WINNING_SCORE = 100
-
 class GoldRush(Matrix):
-    COIN = "coin"
-    EMPTY = "."
-    WALL = "wall"
 
     def __init__(self, rows, cols):
         super().__init__(rows, cols)
-        self.score1 = 0
-        self.score2 = 0
+        self.s1 = 0
+        self.s2 = 0
         self.win = ""
         self.coins = 0
 
@@ -29,7 +23,7 @@ class GoldRush(Matrix):
             self.matrix.append([])
             for j in range(self.cols):
                 if i % 2 != 0:
-                    rand_index = random.randint(0, 1)
+                    rand_index = random.randint(0, 2)
                     rand_element = elements[rand_index]
                     self.matrix[i].append(rand_element)
                     if rand_element == self.COIN:
@@ -42,7 +36,7 @@ class GoldRush(Matrix):
             rand = random.randint(1, 2)
             for k in range(1, self.cols, rand):
                 rand += 1
-                rand_index = random.randint(0, 1)
+                rand_index = random.randint(0, 2)
                 rand_element = elements[rand_index]
                 self.matrix[i][k] = rand_element
                 if rand_element == self.COIN:
@@ -52,74 +46,77 @@ class GoldRush(Matrix):
         self.matrix[self.rows - 1][self.cols - 1] = "player2"
         self.coins = coins
 
-        if coins < LOW_COINS_THRESHOLD:  # threshold
+        if coins < LOW_COINS_THRESHOLD:  # Threshold check
             return self.load_board()
         else:
             return self.matrix
 
     def _check_win(self, player):
         player_num = player[-1]
-        score = getattr(self, f"score{player_num}")
-        if score == WINNING_SCORE:
+        score = getattr(self, f"s{player_num}")
+        if score >= WINNING_SCORE:
             self.win = player
-            return self.win
+            return True
+        return False
 
     def _get_opponent(self, player):
-        if player == "player1":
-            return "player2"
-        elif player == "player2":
-            return "player1"
+        return "player2" if player == "player1" else "player1"
 
     def _perform_move(self, curr_row, curr_col, player, delta_row, delta_col):
-        other_player = self._get_opponent(player)
         new_row, new_col = curr_row + delta_row, curr_col + delta_col
 
         if not (0 <= new_row < self.rows and 0 <= new_col < self.cols):
-            return
+            return  # Out of bounds
 
-        if self.matrix[new_row][new_col] not in [self.WALL, other_player]:
-            if self.matrix[new_row][new_col] == self.COIN:
-                self._update_score(player)
+        target_cell = self.get(new_row, new_col)
+        opponent = self._get_opponent(player)
+        print (target_cell)
 
-            self.matrix[curr_row][curr_col] = self.EMPTY
-            self.matrix[new_row][new_col] = player
+        if target_cell not in [self.WALL, opponent]:
+            if target_cell == self.COIN:
+                self._update_score(player, 10)
+
+            self.alter(curr_row, curr_col, self.EMPTY) 
+            self.alter(new_row, new_col, player)  # Move player
 
         return self._check_win(player)
 
-    def move_down(self, curr_row, curr_col, player):
-        return self._perform_move(curr_row, curr_col, player, 1, 0)
+    # def move_down(self, curr_row, curr_col, player):
+    #     print("downnn")
+    #     return self._perform_move(curr_row, curr_col, player, 1, 0)
 
-    def move_up(self, curr_row, curr_col, player):
-        return self._perform_move(curr_row, curr_col, player, -1, 0)
+    # def move_up(self, curr_row, curr_col, player):
+    #     return self._perform_move(curr_row, curr_col, player, -1, 0)
 
-    def move_right(self, curr_row, curr_col, player):
-        return self._perform_move(curr_row, curr_col, player, 0, 1)
+    # def move_right(self, curr_row, curr_col, player):
+    #     return self._perform_move(curr_row, curr_col, player, 0, 1)
 
-    def move_left(self, curr_row, curr_col, player):
-        return self._perform_move(curr_row, curr_col, player, 0, -1)
+    # def move_left(self, curr_row, curr_col, player):
+    #     return self._perform_move(curr_row, curr_col, player, 0, -1)
 
-    def _move_player(self, player, direction):
-        curr_row, curr_col = None, None
+    # def _find_player_position(self, player):
+    #     for r, row in enumerate(self.matrix):
+    #         for c, value in enumerate(row):
+    #             if value == player:
+    #                 return r, c
+    #     return None, None
 
-        for i, row in enumerate(self.matrix):
-            for j, value in enumerate(row):
-                if value == player:
-                    curr_row, curr_col = i, j
-                    break
-            if curr_row is not None:
-                break
+    # def _update_score(self, player, points):
+    #     player_num = player[-1]
+    #     score_attr = f"s{player_num}"
+    #     setattr(self, score_attr, getattr(self, score_attr) + points)
 
-        if direction == "down":
-            self.move_down(curr_row, curr_col, player)
-        elif direction == "up":
-            self.move_up(curr_row, curr_col, player)
-        elif direction == "right":
-            self.move_right(curr_row, curr_col, player)
-        elif direction == "left":
-            self.move_left(curr_row, curr_col, player)
+    # def _move_player(self, player, direction):
+    #     curr_row, curr_col = self._find_player_position(player)
 
-    def _update_score(self, player):
-        player_num = player[-1]
-        score_attr = f"score{player_num}"
-        setattr(self, score_attr, getattr(self, score_attr) + 10)
-        print(getattr(self, score_attr))
+    #     if curr_row is None or curr_col is None:
+    #         return  # Player not found
+
+    #     if direction == "down":
+    #         return self.move_down(curr_row, curr_col, player)
+    #     elif direction == "up":
+    #         return self.move_up(curr_row, curr_col, player)
+    #     elif direction == "right":
+    #         return self.move_right(curr_row, curr_col, player)
+    #     elif direction == "left":
+    #         return self.move_left(curr_row, curr_col, player)
