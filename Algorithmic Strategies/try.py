@@ -1,3 +1,4 @@
+# Common elements ecercise in o(n^2) 
 def common_nums(arr1,arr2):
     nums = []
     for i in range(len(arr1)):
@@ -10,6 +11,7 @@ def common_nums(arr1,arr2):
 #print(common_nums([1,2,3],[2,4,5]))
 
 
+# Common elements ex in 0(n) 
 def common_nums2(arr1,arr2):
     nums = {}
     common_elements = []
@@ -25,7 +27,7 @@ def common_nums2(arr1,arr2):
 
 print(f"common nums between tow arrays:{common_nums2([1,2,3],[2,1,3])}")
 
-
+# Common elements in 3 arrays ex
 def common_nums3(arr1,arr2,arr3):
     nums = common_nums2(arr1,arr2)
 
