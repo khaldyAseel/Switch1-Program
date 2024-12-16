@@ -38,6 +38,7 @@ print(f"common nums between three arrays :{common_nums3([1,4,5,3],[2,3,6,7],[1,2
 
 # 1.Count vowels
 def count_vowels(str):
+    str.lower()
     vol = ['a', 'e', 'i', 'o', 'u']
     count = 0
     for char in str:
