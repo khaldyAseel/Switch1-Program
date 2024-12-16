@@ -1,0 +1,39 @@
+# 1. what is queue ? 
+A queue in computer science is a linear list of elements in which deletion and insertion work by FIFO methodlogy.
+if we want to get the first element in the queue we use dequque method and if we want to insert an new element we use inueue method.
+for example if we want to save a line of people or vehicles that are waiting for something.
+
+
+# 2. what is hashmap? 
+HashMap is a popular data structure in Java that uses the Map interface and a hash table to provide efficient access and manipulation of data based unique keys.
+HashMap is a data structure that implements the Map interface and uses a hash table for storing key-value pairs.
+for example: 
+Imagine you have a physical phone book.
+The name of the person (e.g., "Alice") is the key.
+The phone number (e.g., "123-456-7890") is the value.
+If you want to find someone's phone number, instead of flipping through all the pages, you go straight to their name (key) using alphabetical order or indexing, 
+and instantly retrieve their number (value).
+
+
+# 3.what is LLM?
+An LLM (Large Language Model) is a type of machine learning model,
+typically built on neural networks, that is trained on a massive amount of text data to understand, generate, and manipulate human language.
+LLMs are capable of performing various language-related tasks, such as answering questions, summarizing text, translating languages, or even generating creative writing.
+for example: ChatGPT as an LLM
+Task: Suppose you ask, "What is the capital of France?"
+How It Works: An LLM like ChatGPT processes your query, understands the context, and retrieves the answer ("Paris") based on its training data.
+
+
+# 4.what is binary search?
+Binary Search is a highly efficient algorithm used to find the position of a target element in a sorted array or list.
+It works by repeatedly dividing the search interval in half, comparing the target value to the middle element, and narrowing the search to the half where the target must lie.
+for example: Imagine you're playing a game where you have to guess a number between 1 and 100.
+You start by asking, "Is it 50?" (the middle of the range).
+If the number is higher, you eliminate 1–50 and focus on 51–100.
+If it’s lower, you eliminate 51–100 and focus on 1–50.
+Repeat until you find the number.
+
+
+# 5.what os knn?
+K-Nearest Neighbors (KNN) is a simple and effective machine learning algorithm used for classification and regression tasks.
+It works by finding the “k” closest data points (neighbors) to a given input based on distance, and then makes predictions based on these neighbors.
