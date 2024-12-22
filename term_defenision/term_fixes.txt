@@ -1,0 +1,38 @@
+## term fixes:
+
+### 1.Algorithm  
+**Fixed Definition:**  
+An algorithm is a list of steps that you follow to solve a problem. You can think of it like a recipe for cooking food, where each step gets you closer to the final dish. Algorithms can be written in any way, as long as they work, but efficiency is also important because it impacts performance. For example, if you’re sorting numbers, an algorithm involves comparing them and putting them in order. Algorithms are different from programs; a program is the implementation of an algorithm in code. Algorithms are not limited to computer science—they are also used in fields like mathematics and engineering. The best algorithms balance efficiency and correctness.
+
+
+### 2.Database
+**Fixed Definition:**
+A database is where all the data is stored in an application. It can be compared to an Excel sheet, but it doesn’t necessarily have to be in the cloud; databases can be hosted locally or remotely. There are many types of databases, and while some use rows and columns (e.g., relational databases), others may use different structures, such as key-value pairs or graphs. Databases must prioritize security, as they often store sensitive information. For example, on a website, user data is stored in a database, often with a well-defined structure to ensure efficient querying. Databases are useful for applications of all sizes, not just for big companies. While SQL is a common language for relational databases, other types use different query languages. The key aspect of a database is how it organizes and retrieves data effectively, not just how much data it can store.
+
+
+### 3.HTTP
+**Fixed Definition:**
+HTTP is what websites use to load pages and send data back and forth. It is a protocol that lets users interact with websites. HTTP works in the background, but developers should understand its basics to create effective websites. It’s used to send various types of data, like text, images, and other content, from servers to browsers. For example, when you open a website, HTTP transfers the necessary information from the server to your browser. While HTTPS (the secure version of HTTP) is more commonly used today due to enhanced security, HTTP is still relevant and important for both front-end and backend systems. HTTP can be a relatively simple protocol, but it plays a crucial role in web development and isn’t entirely replaced by modern tools like React or Angular.
+
+
+### 4.Recursion:
+**Fixed Definition:**
+Recursion is when a function calls itself to solve a problem. It’s commonly used in programming to break down complex problems into smaller, more manageable ones. For example, recursion can be used to solve problems like calculating factorials, traversing data structures like trees, or performing operations on sequences. While loops can sometimes achieve similar results, recursion is particularly useful for problems that have a natural hierarchical or repetitive structure. Recursion has specific rules, such as the need for a base case to prevent infinite loops; otherwise, it can cause a stack overflow error. It can make code shorter and more elegant, but it may also make it harder to read and debug. Understanding recursion is essential for tackling advanced programming challenges.
+
+
+### 5.Big-O Notation:
+**Fixed Definition:**
+Big-O notation is a way to describe the efficiency of an algorithm in terms of its time or space complexity. It is used to evaluate how the performance of an algorithm scales with the size of the input. For example, O(1) represents constant time, O(n) represents linear time, and O(n²) represents quadratic time. Big-O is not about exact steps but rather the growth rate as the input size increases. Understanding Big-O is crucial for designing efficient algorithms, especially when dealing with large datasets. While modern computers can handle some inefficiencies, analyzing Big-O helps developers write optimized code. It’s not just a theoretical concept; it’s widely applicable in software engineering and problem-solving.
+
+### 6. Machine Learning
+**Fixed Definition:**
+Machine learning is when computers use data to improve their performance on a task without being explicitly programmed for every specific scenario. It involves creating models that can identify patterns in data and make predictions or decisions based on those patterns. For example, if you train a machine learning model with pictures of cats, it learns to recognize cats by analyzing the features in the images. Machine learning is commonly used in applications like AI, recommendation systems, and image recognition. While tools like TensorFlow simplify its use, understanding the underlying principles is important for creating effective models. Machine learning is deeply tied to both programming and mathematics, and its models are not always perfectly accurate—they improve with the quality and quantity of data provided.
+
+
+### 7.REST API:
+**Fixed Definition:**
+A REST API is a type of API used to send and receive data between applications. REST stands for "Representational State Transfer," but you don’t need to fully understand the meaning to use it. REST APIs use URLs to send data, and you can interact with them using tools like Postman. For example, if you want to retrieve a list of users, you make a GET request to the API. REST APIs are commonly used by web developers, but mobile apps can also use them. While they often transmit JSON data, they can send other formats, such as text files. REST APIs are flexible in design, allowing developers to structure them in various ways. However, it is important to consider security when working with REST APIs, as they may be connected to your system in some capacity. They are primarily used for retrieving data, but can also handle other operations like creating, updating, or deleting resources.
+
+### 8.GIT:
+**Fixed Definition:**
+Git is a version control tool used by developers to track changes in their code. It's similar to cloud storage services like Dropbox, but specifically designed for managing software projects. With Git, you can store your code online, making it easy to retrieve if anything goes wrong. While Git is especially useful for teams collaborating on a project, it’s also beneficial for individual developers. The commands can seem confusing at first, but you only need to know a few basic ones to get started. Git’s main function is to track changes and versions of your files, allowing you to revert to previous versions if needed. Contrary to the idea that Git is only for advanced developers, beginners can also benefit from using it as it helps manage code history and collaboration. For smaller projects, Google Drive or similar tools could be alternatives, but Git provides more robust version control features that are vital as projects grow.
