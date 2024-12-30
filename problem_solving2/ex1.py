@@ -12,14 +12,14 @@ def return_possiable_water(arr):
     max_left =[0]*n
     max_right = [0] *n
     max_left[0] = arr[0]
-    for i in range(1,len(arr)):
-        if arr[i]>max_left[0]:
-            max_left = arr[i]
+    for i in range(1,n):
+        if arr[i]>max_left[i-1]:
+            max_left[i] = arr[i]
 
     max_right[n - 1] = arr[n - 1]
-    for j in range(len(arr)-1,1):
-          if arr[i]>max_right[0]:
-            max_right = arr[i]
+    for j in range(n-1,-1,-1):
+          if arr[j]>max_right[j-1]:
+            max_right[j] = arr[j]
 
     for i in range(n):
         trapped_water = min(max_left[i], max_right[i]) - arr[i]
