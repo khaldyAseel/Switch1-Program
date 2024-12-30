@@ -4,15 +4,15 @@
 def return_camel_case(str):
     returned_str = ""
     for i in range(1,len(str)):
-        if str[i-1] == " ":
+        if str[i-1] == " " and str[i]!= " ":
             returned_str+= str[i].upper()
         elif str[i]!= " ":
             returned_str+=str[i].lower()
     if str[0]!= " ":
-        returned_str = str[0]+returned_str
+        returned_str = str[0].lower()+returned_str
     
     return returned_str
 
-str = "camel is An animaL"
+str = "camel  is An animaL"
 print(f"camel case of input is: {return_camel_case(str)}")
 
