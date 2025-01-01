@@ -7,25 +7,24 @@
 
 # brute_force
 def return_possible_water(arr):
-    water_arr= []
+    sum =0 
     n = len(arr)
     max_left =[0]*n
     max_right = [0] *n
     max_left[0] = arr[0]
+    max_right[n - 1] = arr[n - 1]
     for i in range(1,n):
         max_left[i] = max(max_left[i-1], arr[i])
 
-    max_right[n - 1] = arr[n - 1]
     for j in range(n-2,-1,-1):
         max_right[j] = max(max_right[j+1],arr[j])
 
     for i in range(n):
         trapped_water = min(max_left[i], max_right[i]) - arr[i]
-        if trapped_water > 0:
-            water_arr.append(trapped_water)
-        else:
-            water_arr.append(0)            
-    return sum(water_arr)
+        trapped_water = max(trapped_water,0)
+        sum+=trapped_water
+                 
+    return sum
 
 print(f"The quantity of the trapped water is:{return_possible_water([3,0,1,0,4,0,2])}")
 
@@ -65,8 +64,6 @@ def max_trapped_water(arr):
             current_water =  min(arr[0], arr[i])
             max_water = max(max_water, current_water)
 
-        if current_water > max_water:
-                max_water = current_water
     return max_water
 
 print(f"The max water between tow buildings is:{return_trapped_water([3,0,1,0,4,0,2])}")
