@@ -12,14 +12,19 @@ def check_anagram(word1,word2):
     lst2 = list(word2)
     indx1 = {}
     indx2 = {}
-    allSet = set(lst1,lst2)
+    allSet = set(lst1 + lst2)
     if len(allSet)!= len(lst1):
         return False
-    else:
-        for i in range(len(lst1)):
-            indx1[lst1[i]] = i
-        for j in range(len(lst2)):
-            indx2[lst2[j]] = j
-        if indx1[lst1[0]] == indx2[lst2[0]]:
+    for i in range(len(lst1)):
+        indx1[lst1[i]] = i
+    for j in range(len(lst2)):
+        indx2[lst2[j]] = j
+    for key in indx1:
+        if indx2.__contains__(key):
+            return True
+        else:
             return False
-        return True
+
+str1 = 'listen'
+str2 = 'silent'
+print(f"Is it anagram? {check_anagram(str1,str2)}")
