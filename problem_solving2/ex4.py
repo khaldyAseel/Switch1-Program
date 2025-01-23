@@ -12,8 +12,7 @@ def check_anagram(word1,word2):
     lst2 = list(word2)
     indx1 = {}
     indx2 = {}
-    allSet = set(lst1 + lst2)
-    if len(allSet)!= len(lst1):
+    if len(lst2)!= len(lst1):
         return False
     for i in range(len(lst1)):
         indx1[lst1[i]] = i
