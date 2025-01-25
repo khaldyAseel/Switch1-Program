@@ -41,6 +41,14 @@ def reverse_linkedlist(lst):
 
     lst.head = prev     
 
+def reverse_recursive(self, curr=None, prev=None):
+        if curr is None:
+            self.head = prev
+            return
+        next_node = curr.next
+        curr.next = prev
+        self.reverse_recursive(next_node, curr)
+
 
 lst = LinkedList()
 lst.append(1)
