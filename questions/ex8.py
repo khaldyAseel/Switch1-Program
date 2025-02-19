@@ -1,7 +1,6 @@
 # itertaive solution 
 import re 
-class Solution(object):
-    def isPalindrome(self, s):
+def isPalindrome(self, s):
         """
         :type s: str
         :rtype: bool
@@ -19,7 +18,7 @@ class Solution(object):
         return True 
 
 # recursive solution 
-    def is_palindrome_recursive(s):
+def is_palindrome_recursive(s):
         """
         Check if a string is a palindrome using recursion, ignoring spaces, case, and non-alphanumeric characters.
         :param s: str - Input string
@@ -35,3 +34,23 @@ class Solution(object):
             return False
 
         return is_palindrome_recursive(s[1:-1])
+
+
+def find_two_minimums(arr):
+    if len(arr) < 2:
+        raise ValueError("Array must contain at least two elements")
+    
+    # Initialize the two minimums
+    min1 = float('inf')
+    min2 = float('inf')
+
+    for num in arr:
+        if num < min1:
+            # Update both min1 and min2
+            min2 = min1
+            min1 = num
+        elif num < min2:
+            # Update only min2
+            min2 = num
+    
+    return min1, min2
